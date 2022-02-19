@@ -1,0 +1,15 @@
+INSERT INTO product (id, name) VALUES (1, 'Very good item');
+INSERT INTO product (id, name) VALUES (2, 'Very good item 2');
+INSERT INTO product (id, name) VALUES (3, 'Very good item 3');
+INSERT INTO product (id, name) VALUES (4, 'Very good item 4');
+INSERT INTO product (id, name) VALUES (5, 'Very good item 5');
+INSERT INTO product (id, name) VALUES (6, 'Very good item 6');
+INSERT INTO product (id, name) VALUES (7, 'Very good item 7');
+INSERT INTO product (id, name) VALUES (8, 'Very good item 8');
+INSERT INTO product (id, name) VALUES (9, 'Very good item 9');
+INSERT INTO product (id, name) VALUES (10, 'Very good item 10');
+INSERT INTO product (id, name) VALUES (11, 'Very good item 11');
+INSERT INTO product (id, name) VALUES (12, 'Very good item 12');
+INSERT INTO product (id, name) VALUES (13, 'Very good item 13');
+INSERT INTO product (id, name) VALUES (14, 'Tank');
+INSERT INTO product (id, name) VALUES (15, 'Aircraft');
