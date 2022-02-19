@@ -66,18 +66,22 @@ public class ProductRepositoryTest {
     }
 
     @Test
-    @DisplayName("System แสดงสินค้าที่ชื่อว่า Tank")
+    @DisplayName("System แสดงสินค้าที่ชื่อว่า Tank (ชื่อ และ ราคา)")
     public void test04() {
 
         // Arrange
         Pageable paging = PageRequest.of(0, SIZE);
         String name = "Tank";
+        int tankPrice = 30000000;
 
         // Act
         Page<Product> result = productRepository.findByName(name, paging);
 
         // Assert
         String itemName = result.toList().get(0).getName();
+        int itemPrice = result.toList().get(0).getPrice();
         assertEquals(itemName, name);
+        assertEquals(itemPrice, tankPrice);
+
     }
 }
