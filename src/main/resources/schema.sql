@@ -17,3 +17,10 @@ CREATE TABLE user (
     province VARCHAR(50) NOT NULL,
     postid VARCHAR(50) NOT NULL
 );
+
+DROP TABLE IF EXISTS cart;
+CREATE TABLE cart (
+    id INT AUTO_INCREMENT  PRIMARY KEY,
+    userid VARCHAR(50) NOT NULL,
+    itemid INT NOT NULL
+);

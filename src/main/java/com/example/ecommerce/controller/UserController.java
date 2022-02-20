@@ -23,8 +23,7 @@ public class UserController {
     }
 
     @GetMapping(API + "/getAddress")
-    public UserDetailResponse userDetail() {
-        String token = "prayut.VALID_TOKEN_STRING";
+    public UserDetailResponse userDetail(@RequestHeader("e-com") String token) {
         return new UserDetailResponse("/getAddress", userService.getUserDetail(token));
     }
 }
