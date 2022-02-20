@@ -1,6 +1,8 @@
 package com.example.ecommerce.repository;
 
 import com.example.ecommerce.entity.Product;
+import com.example.ecommerce.entity.User;
+import com.example.ecommerce.service.CartService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -10,6 +12,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 
+import java.util.Optional;
+
 
 @DataJpaTest
 public class ProductRepositoryTest {
@@ -18,6 +22,14 @@ public class ProductRepositoryTest {
 
     @Autowired
     ProductRepository productRepository;
+
+    @Autowired
+    UserRepository userRepository;
+
+    @Autowired
+    CartRepository cartRepository;
+
+    CartService cartService;
 
     @Test
     @DisplayName("User กดเรียกดูสินค้า โดยระบบจะแสดงสินค้าหน้าละ 5 ชิ้น")
@@ -84,4 +96,58 @@ public class ProductRepositoryTest {
         assertEquals(itemPrice, tankPrice);
 
     }
+
+    @Test
+    @DisplayName("User ทำการหยิบสินค้าชิ้นนี้ใส่ตะกร้า แต่ระบบบังคับให้เข้าสู่ระบบ")
+    public void test05() {
+        // Arrange
+        String token = "";
+        int itemid = 14;
+        String RESULT = "ERROR";
+        cartService = new CartService();
+
+        // Act
+        String result = cartService.addItemToCart(token, itemid);
+
+        // Assert
+        assertEquals(RESULT, result);
+    }
+
+    @Test
+    @DisplayName("(User ทำการเข้าระบบ)")
+    public void test06() {
+        // Arrange
+        String userid = "prayut";
+        String password = "8b8e9715d12e4ca12c4c3eb4865aaf6a";
+        String VALID_TOKEN = "VALID_TOKEN_STRING";
+        String RESULT = userid + "." + VALID_TOKEN;
+
+        // Act
+        Optional<User> user = userRepository.findByUseridAndPassword(userid, password);
+
+        String result = user.get().getUserId() + "." + VALID_TOKEN;
+        // Assert
+        assertEquals(RESULT, result);
+    }
+
+    @Test
+    @DisplayName("User ทำการหยิบสินค้าชิ้นนี้ใส่ตะกร้า")
+    public void test07() {
+        // Arrange
+        String userid = "prayut";
+        String VALID_TOKEN = "VALID_TOKEN_STRING";
+        String token = userid + "." + VALID_TOKEN;
+        int itemid = 14;
+        String RESULT = "COMPLETED";
+        cartService = new CartService();
+        cartService.setCartRepository(this.cartRepository);
+
+        // Act
+        String result = cartService.addItemToCart(token, itemid);
+        // Assert
+        assertEquals(RESULT, result);
+    }
+
+
+
 }
