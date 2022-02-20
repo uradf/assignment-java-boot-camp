@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User, Integer> {
 
-    @Query(value = "SELECT id, userid, 'NULL' as password,name, surname, houseid, road, province, postid  FROM user", nativeQuery = true)
+    @Query(value = "SELECT id, userid, 'NULL' as password,name, surname, houseid, road, province, postid  FROM user WHERE userid = ?1", nativeQuery = true)
     Optional<User> findByUserid(String userId);
 
     Optional<User> findByUseridAndPassword(String userId, String password);
