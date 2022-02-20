@@ -21,6 +21,6 @@ CREATE TABLE user (
 DROP TABLE IF EXISTS cart;
 CREATE TABLE cart (
     id INT AUTO_INCREMENT  PRIMARY KEY,
-    userid INT NOT NULL,
+    userid VARCHAR(50) NOT NULL,
     itemid INT NOT NULL
 );
