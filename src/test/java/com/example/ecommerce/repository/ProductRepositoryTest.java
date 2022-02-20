@@ -84,7 +84,7 @@ public class ProductRepositoryTest {
         // Arrange
         Pageable paging = PageRequest.of(0, SIZE);
         String name = "Tank";
-        int tankPrice = 30000000;
+        int tankPrice = 1000000;
 
         // Act
         Page<Product> result = productRepository.findByName(name, paging);
