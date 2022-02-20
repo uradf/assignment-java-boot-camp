@@ -11,7 +11,7 @@ INSERT INTO product (id, name, price) VALUES (10, 'Very good item 10', 100);
 INSERT INTO product (id, name, price) VALUES (11, 'Very good item 11', 100);
 INSERT INTO product (id, name, price) VALUES (12, 'Very good item 12', 100);
 INSERT INTO product (id, name, price) VALUES (13, 'Very good item 13', 100);
-INSERT INTO product (id, name, price) VALUES (14, 'Tank', 30000000);
-INSERT INTO product (id, name, price) VALUES (15, 'Aircraft', 40000000);
+INSERT INTO product (id, name, price) VALUES (14, 'Tank', 1000000);
+INSERT INTO product (id, name, price) VALUES (15, 'Aircraft', 2000000);
 
 INSERT INTO user (id, userid, password, name, surname, houseid, road, province, postid ) VALUES (1, 'prayut', '8b8e9715d12e4ca12c4c3eb4865aaf6a', 'prayut', 'chanocha', '44', 'container', 'Krupthep', '99');

@@ -24,3 +24,10 @@ CREATE TABLE cart (
     userid VARCHAR(50) NOT NULL,
     itemid INT NOT NULL
 );
+
+DROP TABLE IF EXISTS transactions;
+CREATE TABLE transactions (
+    id INT AUTO_INCREMENT  PRIMARY KEY,
+    userid VARCHAR(50) NOT NULL,
+    balance FLOAT NOT NULL
+);
